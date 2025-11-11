@@ -1,0 +1,300 @@
+<?xml version="1.0"?>
+<robot
+  name="warehouse_robots">
+
+  <!-- World base link -->
+  <link name="world_base"></link>
+
+  <!-- Base link -->
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-0.027013 -3.2999E-08 0.01722"
+        rpy="0 0 0" />
+      <mass
+        value="3.777" />
+      <inertia
+        ixx="0.011028"
+        ixy="1.8783E-09"
+        ixz="0.0017425"
+        iyy="0.024419"
+        iyz="-1.4644E-08"
+        izz="0.03312" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warehouse_robots/meshes/base_link.STL"  />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.62745 0.62745 0.62745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warehouse_robots/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="world_base_joint" type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent link="world_base" />
+    <child link="base_link" />
+  </joint>
+
+  <!-- Right back wheel -->
+  <link
+    name="RB_wheel">
+    <inertial>
+      <origin
+        xyz="2.7916E-11 -6.9229E-11 -0.0075004"
+        rpy="0 0 0" />
+      <mass
+        value="0.082383" />
+      <inertia
+        ixx="5.899E-05"
+        ixy="3.5306E-13"
+        ixz="-1.8664E-14"
+        iyy="5.899E-05"
+        iyz="-2.4113E-14"
+        izz="0.0001153" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warehouse_robots/meshes/RB_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.62745 0.62745 0.62745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warehouse_robots/meshes/RB_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_back_wheel"
+    type="continuous">
+    <origin
+      xyz="-0.10793 -0.1235 -0.039"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RB_wheel" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+
+  <!-- Right front wheel -->
+  <link
+    name="RF_wheel">
+    <inertial>
+      <origin
+        xyz="2.7885E-11 -6.9163E-11 -0.0075004"
+        rpy="0 0 0" />
+      <mass
+        value="0.082383" />
+      <inertia
+        ixx="5.899E-05"
+        ixy="3.5306E-13"
+        ixz="-1.8662E-14"
+        iyy="5.899E-05"
+        iyz="-2.4113E-14"
+        izz="0.0001153" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warehouse_robots/meshes/RF_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.62745 0.62745 0.62745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warehouse_robots/meshes/RF_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="right_front_wheel"
+    type="continuous">
+    <origin
+      xyz="0.12207 -0.1235 -0.039"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="RF_wheel" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+
+  <!-- Left back wheel -->
+  <link
+    name="LB_wheel">
+    <inertial>
+      <origin
+        xyz="2.8023E-11 -6.9224E-11 0.0074996"
+        rpy="0 0 0" />
+      <mass
+        value="0.082383" />
+      <inertia
+        ixx="5.899E-05"
+        ixy="3.5306E-13"
+        ixz="-1.8661E-14"
+        iyy="5.899E-05"
+        iyz="-2.4113E-14"
+        izz="0.0001153" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warehouse_robots/meshes/LB_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.62745 0.62745 0.62745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warehouse_robots/meshes/LB_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_back_wheel"
+    type="continuous">
+    <origin
+      xyz="-0.10793 0.1235 -0.039"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="LB_wheel" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+
+  <!-- Left front wheel -->
+  <link
+    name="LF_wheel">
+    <inertial>
+      <origin
+        xyz="2.8023E-11 -6.9224E-11 0.0074996"
+        rpy="0 0 0" />
+      <mass
+        value="0.082383" />
+      <inertia
+        ixx="5.899E-05"
+        ixy="3.5306E-13"
+        ixz="-1.866E-14"
+        iyy="5.899E-05"
+        iyz="-2.4113E-14"
+        izz="0.0001153" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warehouse_robots/meshes/LF_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.62745 0.62745 0.62745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://warehouse_robots/meshes/LF_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="left_front_wheel"
+    type="continuous">
+    <origin
+      xyz="0.12207 0.1235 -0.039"
+      rpy="1.5708 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="LF_wheel" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      effort="10"
+      velocity="10" />
+    <dynamics
+      damping="0.1"
+      friction="0.1" />
+  </joint>
+</robot>

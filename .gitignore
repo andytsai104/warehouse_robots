@@ -1,0 +1,56 @@
+# --------------------
+# ROS 2 Build/Install Artifacts
+# --------------------
+# CMake/ament build directories
+build/
+install/
+log/
+src/gazebo_sim_learning_pkg/
+
+# Python generated files
+*.pyc
+__pycache__/
+
+# --------------------
+# Compilation/Testing related
+# --------------------
+# CMake files
+CMakeCache.txt
+CMakeFiles/
+CTestTestfile.cmake
+Makefile
+
+# Compiled binaries and libraries
+*.so
+*.a
+*.o
+*.dylib
+*.dll
+*.exe
+
+# Test results
+test_results/
+
+# --------------------
+# Common Editor/IDE Files
+# --------------------
+# VS Code
+.vscode/
+
+# Qt Creator
+*.user
+
+# Vim/Nano swap files
+*~
+\#*
+.\#*
+
+# Emacs backup files
+\#*\#
+
+# --------------------
+# Other
+# --------------------
+# ROS bag files (usually large and should not be tracked)
+*.bag
+*.mcap
