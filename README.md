@@ -119,7 +119,7 @@ M.S. Robotics & Autonomous Systems @ ASU
 2. RL training 跟 RL-based decision maker
 3. Reward function 定義
 
-###　- Quinn:
+### - Quinn:
 1. A*
 2. Consensus decision maker
 3. 數據記錄器 (Metric logger)
