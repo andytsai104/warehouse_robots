@@ -9,6 +9,12 @@ This package includes the robot description (URDF + meshes), launch files, and a
 ```
 warehouse_robots/
 ├── launch/               # Gazebo & RViz launch files
+├── warehouse_robots/     # Python ROS 2 nodes (executable scripts)
+│   ├── __init__.py
+│   ├── ...
+│   └── ...
+├── resource/
+│   └── warehouse_robots
 ├── urdf/                 # URDF / XACRO robot description
 ├── meshes/               # STL / DAE 3D models
 ├── worlds/               # Sample warehouse world (.sdf)
@@ -32,7 +38,6 @@ git clone https://github.com/your_username/warehouse_robots.git
 
 # Install dependencies
 cd ~/ros_ws
-rosdep install --from-paths src -y --ignore-src
 
 # Build
 colcon build --symlink-install
@@ -56,7 +61,7 @@ ros2 launch warehouse_robots display.launch.py
 ---
 
 ## ⚙️ Dependencies
-- ROS 2 (Humble / Iron / Jazzy)  
+- ROS 2 (Humble)  
 - `ros_gz_sim`  
 - `robot_state_publisher`  
 - `xacro`  
@@ -64,7 +69,7 @@ ros2 launch warehouse_robots display.launch.py
 
 Install manually if missing:
 ```bash
-sudo apt install ros-${ROS_DISTRO}-ros-gz ros-${ROS_DISTRO}-xacro ros-${ROS_DISTRO}-robot-state-publisher
+sudo apt install ros-humble-ros-gz ros-humble-xacro ros-humble-robot-state-publisher
 ```
 
 ---
@@ -85,15 +90,7 @@ sudo apt install ros-${ROS_DISTRO}-ros-gz ros-${ROS_DISTRO}-xacro ros-${ROS_DIST
 | `meshes/` | 3D geometry used in visuals |
 | `worlds/` | Pre-built warehouse environment |
 | `launch/` | Launch files for Gazebo and RViz |
-| `scripts/` *(optional)* | Custom controllers or spawn scripts |
-
----
-
-## 🧪 Development Notes
-- Units: **meters (m)** for all meshes  
-- Coordinate: **Z-up**, **X-forward**, **Y-left**  
-- To adjust robot size, change `scale` in URDF or re-export STL from SolidWorks (in meters).  
-- If Gazebo cannot find meshes, ensure `IGN_GAZEBO_RESOURCE_PATH` includes this package’s share directory.
+| `warehouse_robots/` | Custom controllers and robot's functions |
 
 ---
 
@@ -101,10 +98,31 @@ sudo apt install ros-${ROS_DISTRO}-ros-gz ros-${ROS_DISTRO}-xacro ros-${ROS_DIST
 **Andy Tsai**  
 M.S. Robotics & Autonomous Systems @ ASU  
 📧 andystsai1040@gmail.com  
-🌐 [LinkedIn / GitHub Profile link](https://github.com/your_username)
+🌐 [LinkedIn link](https://www.linkedin.com/in/chih-hao-tsai/)
+🌐 [Github Profile](https://github.com/andytsai104)
 
 ---
 
-## 🪪 License
-MIT License  
-See [`LICENSE`](LICENSE) for details.
+## 🧪 TODO:
+1. 重新設計倉庫大小
+2. 重新設計機器人大小（約長寬1m）
+3. 設計機器人基本功能（PID controller: 直走，轉彎，停止...）
+4. 寫.rviz file (預設robot model內的description=robot_description, etc.)
+
+### - Alan:
+1. Robot's PID
+2. Task distributer
+3. 指令switcher node
+
+### - Andy:
+1. 中央黑板節點(分散式數據廣播)
+2. RL training 跟 RL-based decision maker
+3. Reward function 定義
+
+###　- Quinn:
+1. A*
+2. Consensus decision maker
+3. 數據記錄器 (Metric logger)
+
+
+---
