@@ -34,7 +34,7 @@ mkdir -p ~/ros_ws/src
 cd ~/ros_ws/src
 
 # Clone this repository
-git clone https://github.com/your_username/warehouse_robots.git
+git clone https://github.com/andytsai104/warehouse_robots
 
 # Install dependencies
 cd ~/ros_ws
