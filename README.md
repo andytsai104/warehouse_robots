@@ -43,6 +43,10 @@ cd ~/ros_ws
 colcon build --symlink-install
 source install/setup.bash
 ```
+Install manually if missing:
+```bash
+sudo apt install ros-humble-ros-gz ros-humble-xacro ros-humble-robot-state-publisher
+```
 
 ### 2️⃣ Launch Gazebo Simulation
 ```bash
@@ -105,7 +109,7 @@ M.S. Robotics & Autonomous Systems @ ASU
 
 ## 🧪 TODO:
 1. 重新設計倉庫大小
-2. 重新設計機器人大小（約長寬1m）
+2. ✅重新設計機器人大小（約長寬1m）
 3. 設計機器人基本功能（PID controller: 直走，轉彎，停止...）
 4. 寫.rviz file (預設robot model內的description=robot_description, etc.)
 
