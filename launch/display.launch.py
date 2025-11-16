@@ -10,24 +10,24 @@ def generate_launch_description():
     # --- 1. 定義套件名稱和 URDF 檔案名稱 ---
     # 請根據您實際建立的套件名稱和 URDF 檔案名稱修改這兩行
     package_name = 'warehouse_robots' # package 名稱
-    urdf_file_name = 'warehouse_robots.urdf' # URDF 檔案名稱
+    xacro_file_name = 'warehouse_robots.urdf.xacro' # URDF 檔案名稱
     
     # 建立 URDF 檔案的完整路徑
-    urdf_path = os.path.join(
+    xacro_path = os.path.join(
         get_package_share_directory(package_name),
         'urdf',
-        urdf_file_name
+        xacro_file_name
     )
 
     # 從 URDF 檔案讀取機器人描述內容
-    robot_description = Command(['xacro ', urdf_path])
+    robot_description = Command(['xacro ', xacro_path])
     
     # --- 2. 定義啟動參數 ---
     # 允許從命令行傳入模型路徑，但提供預設值
     model_arg = DeclareLaunchArgument(
         name='model', 
-        default_value=urdf_path,
-        description='Path to robot urdf file'
+        default_value=xacro_path,
+        description='Path to robot xacro file'
     )
 
     # --- 3. 啟動節點 ---

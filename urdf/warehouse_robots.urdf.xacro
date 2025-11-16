@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="warehouse_robots">
+
+  <!-- Global scale factor -->
+  <xacro:property name="S" value="4.0"/>
+
+  <!-- Default material -->
+  <material name="default_color">
+    <color rgba="0.62745 0.62745 0.62745 1"/>
+  </material>
+
+  <!-- ===========================
+       World base link
+  ============================ -->
+  <link name="world_base"/>
+
+  <!-- ===========================
+       Base link
+  ============================ -->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="${-0.027013*S} ${-3.2999E-08*S} ${0.01722*S}" rpy="0 0 0"/>
+      <mass value="3.777"/>
+      <inertia ixx="0.011028" ixy="1.8783E-09" ixz="0.0017425"
+               iyy="0.024419" iyz="-1.4644E-08" izz="0.03312"/>
+    </inertial>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://warehouse_robots/meshes/base_link.STL"
+              scale="${S} ${S} ${S}"/>
+      </geometry>
+      <material name="default_color"/>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://warehouse_robots/meshes/base_link.STL"
+              scale="${S} ${S} ${S}"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="world_base_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <parent link="world_base"/>
+    <child link="base_link"/>
+  </joint>
+
+
+  <!-- ===========================
+       Wheel Macro（正確版）
+  ============================ -->
+  <xacro:macro name="wheel_link" params="wheel_name mesh x y z axis">
+    <link name="${wheel_name}">
+      
+      <inertial>
+        <origin xyz="${0*S} ${0*S} ${z*S}" rpy="0 0 0"/>
+        <mass value="0.082383"/>
+        <inertia ixx="5.899E-05" ixy="0" ixz="0"
+                 iyy="5.899E-05" iyz="0" izz="0.0001153"/>
+      </inertial>
+
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://warehouse_robots/meshes/${mesh}"
+                scale="${S} ${S} ${S}"/>
+        </geometry>
+        <material name="default_color"/>
+      </visual>
+
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://warehouse_robots/meshes/${mesh}"
+                scale="${S} ${S} ${S}"/>
+        </geometry>
+      </collision>
+
+    </link>
+
+    <joint name="${wheel_name}_joint" type="continuous">
+      <origin xyz="${x*S} ${y*S} ${-0.039*S}" rpy="1.5708 0 0"/>
+      <parent link="base_link"/>
+      <child link="${wheel_name}"/>
+      <axis xyz="${axis}"/>
+      <limit effort="10" velocity="10"/>
+      <dynamics damping="0.1" friction="0.1"/>
+    </joint>
+  </xacro:macro>
+
+  <!-- Instantiate wheels -->
+  <xacro:wheel_link wheel_name="RB_wheel" mesh="RB_wheel.STL" x="-0.10793" y="-0.1235" z="-0.0075004" axis="0 0 -1"/>
+  <xacro:wheel_link wheel_name="RF_wheel" mesh="RF_wheel.STL" x="0.12207"  y="-0.1235" z="-0.0075004" axis="0 0 -1"/>
+  <xacro:wheel_link wheel_name="LB_wheel" mesh="LB_wheel.STL" x="-0.10793" y="0.1235"  z="0.0074996"  axis="0 0 1"/>
+  <xacro:wheel_link wheel_name="LF_wheel" mesh="LF_wheel.STL" x="0.12207"  y="0.1235"  z="0.0074996"  axis="0 0 1"/>
+
+</robot>

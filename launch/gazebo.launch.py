@@ -9,12 +9,13 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 def generate_launch_description():
     package_name = 'warehouse_robots'
-    urdf_file_name = 'warehouse_robots.urdf'
+    # urdf_file_name = 'warehouse_robots.urdf'
+    xacro_file_name = 'warehouse_robots.urdf.xacro'
     world_name = 'warehouse_world.sdf'
     
     warehouse_share = get_package_share_directory(package_name)
 
-    urdf_path = os.path.join(warehouse_share, 'urdf', urdf_file_name)
+    xacro_path = os.path.join(warehouse_share, 'urdf', xacro_file_name)
     world_path = os.path.join(warehouse_share, 'world', world_name)
 
     # !!!share 上層目錄!!!
@@ -32,7 +33,7 @@ def generate_launch_description():
 
     # 從 URDF 讀取描述
     robot_description = ParameterValue(
-        Command(['xacro ', urdf_path]),
+        Command(['xacro ', xacro_path]),
         value_type=str
     )
 
