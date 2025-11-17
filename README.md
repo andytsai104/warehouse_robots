@@ -43,10 +43,6 @@ cd ~/ros_ws
 colcon build --symlink-install
 source install/setup.bash
 ```
-Install manually if missing:
-```bash
-sudo apt install ros-humble-ros-gz ros-humble-xacro ros-humble-robot-state-publisher
-```
 
 ### 2️⃣ Launch Gazebo Simulation
 ```bash
