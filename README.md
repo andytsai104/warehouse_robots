@@ -107,7 +107,7 @@ M.S. Robotics & Autonomous Systems @ ASU
 1. 重新設計倉庫大小
 2. ✅重新設計機器人大小（約長寬1m）
 3. 設計機器人基本功能（PID controller: 直走，轉彎，停止...）
-4. 寫.rviz file (預設robot model內的description=robot_description, etc.)
+4. ✅寫.rviz file (預設robot model內的description=robot_description, etc.)
 
 ### - Alan:
 1. Robot's PID
