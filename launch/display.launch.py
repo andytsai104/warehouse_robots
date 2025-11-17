@@ -11,12 +11,20 @@ def generate_launch_description():
     # 請根據您實際建立的套件名稱和 URDF 檔案名稱修改這兩行
     package_name = 'warehouse_robots' # package 名稱
     xacro_file_name = 'warehouse_robots.urdf.xacro' # URDF 檔案名稱
+    rviz_file_name = 'display.rviz'  # RViz 配置檔案名稱
     
     # 建立 URDF 檔案的完整路徑
     xacro_path = os.path.join(
         get_package_share_directory(package_name),
         'urdf',
         xacro_file_name
+    )
+
+    # 建立 RViz 配置檔案的完整路徑
+    rviz_path = os.path.join(
+        get_package_share_directory(package_name),
+        'config',
+        rviz_file_name
     )
 
     # 從 URDF 檔案讀取機器人描述內容
@@ -56,6 +64,7 @@ def generate_launch_description():
         executable='rviz2',
         name='rviz2',
         output='screen',
+        arguments=['-d', rviz_path],
         
         # --- 可選：指定 RViz 配置檔案路徑 ---
         # arguments=['-d', os.path.join(
