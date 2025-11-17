@@ -26,7 +26,6 @@ warehouse_robots/
 ---
 
 ## 🚀 Quick Start
----
 
 ### ⚙️ Dependencies
 - ROS 2 (Humble)  
@@ -41,7 +40,6 @@ sudo apt update
 sudo apt install ros-humble-ros-gz ros-humble-xacro ros-humble-robot-state-publisher
 ```
 
----
 
 ### 1️⃣ Clone & Build
 ```bash
