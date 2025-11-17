@@ -26,6 +26,22 @@ warehouse_robots/
 ---
 
 ## 🚀 Quick Start
+---
+
+### ⚙️ Dependencies
+- ROS 2 (Humble)  
+- `ros_gz_sim`  
+- `robot_state_publisher`  
+- `xacro`  
+- `rviz2`
+
+Install manually if missing:
+```bash
+sudo apt update
+sudo apt install ros-humble-ros-gz ros-humble-xacro ros-humble-robot-state-publisher
+```
+
+---
 
 ### 1️⃣ Clone & Build
 ```bash
@@ -56,20 +72,6 @@ Gazebo will open with:
 ### 3️⃣ Optional – Visualize in RViz
 ```bash
 ros2 launch warehouse_robots display.launch.py
-```
-
----
-
-## ⚙️ Dependencies
-- ROS 2 (Humble)  
-- `ros_gz_sim`  
-- `robot_state_publisher`  
-- `xacro`  
-- `rviz2`
-
-Install manually if missing:
-```bash
-sudo apt install ros-humble-ros-gz ros-humble-xacro ros-humble-robot-state-publisher
 ```
 
 ---
