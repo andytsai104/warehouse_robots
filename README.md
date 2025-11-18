@@ -104,15 +104,16 @@ M.S. Robotics & Autonomous Systems @ ASU
 ---
 
 ## 🧪 TODO:
-1. 重新設計倉庫大小
+1. 重新設計倉庫大小 (?)
 2. ✅重新設計機器人大小（約長寬1m）
 3. 設計機器人基本功能（PID controller: 直走，轉彎，停止...）
 4. ✅寫.rviz file (預設robot model內的description=robot_description, etc.)
+5. Potential field consensus controller for robot's decision making
 
 ### - Alan:
 1. Robot's PID
-2. Task distributer
-3. 指令switcher node
+2. Task distributer (分配tasks 給每個機器人)
+3. 指令switcher node (optional: 決定要RL-based controller 還是consensu-based controller)
 
 ### - Andy:
 1. 中央黑板節點(分散式數據廣播)
@@ -120,9 +121,9 @@ M.S. Robotics & Autonomous Systems @ ASU
 3. Reward function 定義
 
 ### - Quinn:
-1. A*
-2. Consensus decision maker
-3. 數據記錄器 (Metric logger)
+1. ✅A* algorithm
+2. ✅Consensus decision maker (Priority-based)
+3. 數據記錄器 (Metric logger for consensus and RL)
 
 
 ---
